@@ -1,8 +1,8 @@
 FROM jenkins
-# if we want to install via apt
+
+# We need root to install packages
 USER root
 
-#RUN apt-get update && apt-get install -y ruby docker wget
 RUN yum install -y docker wget
 
 RUN cd /usr/local/bin && \
@@ -27,8 +27,5 @@ RUN ls -la /etc/yum.repos.d && \
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
 
-RUN touch /var/run/docker.pid
-RUN chmod 777 /var/run/docker.pid
-
-USER jenkins 
-# drop back to the regular jenkins user - good practice
+# drop back to the jenkins user 
+USER jenkins
