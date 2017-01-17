@@ -31,5 +31,7 @@ RUN ls -la /etc/yum.repos.d && \
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
 
+RUN systemctl enable docker.service
+
 USER jenkins 
 # drop back to the regular jenkins user - good practice
