@@ -33,5 +33,20 @@ RUN chown -R 1001:0 $HOME && \
 
 RUN systemctl enable docker.service
 
+RUN touch /var/run/docker.pid
+RUN chmod 777 /var/run/docker.pid
+
+# install SKOPEO
+ENV SKOPEO_BIN=https://github.com/sabre1041/ocp-support-resources/blob/master/skopeo/bin/skopeo?raw=true
+
+COPY /policy.json /etc/containers/
+
+RUN chown -R 1001:0 $HOME && \
+    chmod -R g+rw $HOME && \
+    curl -L -o /usr/bin/skopeo $SKOPEO_BIN && \
+    chown -R 1001:0 /etc/containers && \
+    chmod -R g+rw /etc/containers
+
+
 USER jenkins 
 # drop back to the regular jenkins user - good practice
