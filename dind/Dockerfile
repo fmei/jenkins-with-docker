@@ -5,9 +5,10 @@ FROM docker:1.8
 RUN apk add --update \
 		btrfs-progs \
 		e2fsprogs \
+		e2fsprogs-extra \
 		iptables \
 		xz \
-		tune2fs \
+		xfsprogs \
 	&& rm -rf /var/cache/apk/*
 
 # TODO aufs-tools
