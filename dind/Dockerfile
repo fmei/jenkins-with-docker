@@ -7,6 +7,7 @@ RUN apk add --update \
 		e2fsprogs \
 		iptables \
 		xz \
+		tune2fs \
 	&& rm -rf /var/cache/apk/*
 
 # TODO aufs-tools
