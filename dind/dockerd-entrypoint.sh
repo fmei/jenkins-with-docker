@@ -1,5 +1,5 @@
 #!/bin/sh
-# Source: https://github.com/docker-library/docker/blob/31f5524efb43f05f57663c91de40be788c9d35a4/1.9/dind/dockerd-entrypoint.sh
+# Source: https://github.com/docker-library/docker/blob/2e8569cf5c665ef955855e95be475f52a55c0720/1.8/dind/dockerd-entrypoint.sh
 
 set -e
 

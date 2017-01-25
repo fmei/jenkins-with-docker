@@ -1,5 +1,5 @@
-FROM docker:1.9
-# Source: https://github.com/docker-library/docker/blob/31f5524efb43f05f57663c91de40be788c9d35a4/1.9/dind/Dockerfile
+FROM docker:1.8
+# Source: https://github.com/docker-library/docker/blob/2e8569cf5c665ef955855e95be475f52a55c0720/1.8/dind/Dockerfile
 
 # https://github.com/docker/docker/blob/master/project/PACKAGERS.md#runtime-dependencies
 RUN apk add --update \
@@ -11,7 +11,7 @@ RUN apk add --update \
 
 # TODO aufs-tools
 
-ENV DIND_COMMIT 3b5fac462d21ca164b3778647420016315289034
+ENV DIND_COMMIT 4e899d64e020a67ca05f913d354aa8d99a341a7b
 
 RUN wget "https://raw.githubusercontent.com/docker/docker/${DIND_COMMIT}/hack/dind" -O /usr/local/bin/dind \
 	&& chmod +x /usr/local/bin/dind
