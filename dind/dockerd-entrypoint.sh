@@ -1,18 +1,17 @@
 #!/bin/sh
+# Source: https://github.com/docker-library/docker/blob/31f5524efb43f05f57663c91de40be788c9d35a4/1.9/dind/dockerd-entrypoint.sh
+
 set -e
 
-# no arguments passed
-# or first arg is `-f` or `--some-option`
-if [ "$#" -eq 0 -o "${1#-}" != "$1" ]; then
-	# add our default arguments
-	set -- dockerd \
+if [ "$#" -eq 0 -o "${1:0:1}" = '-' ]; then
+	set -- docker daemon \
 		--host=unix:///var/run/docker.sock \
 		--host=tcp://0.0.0.0:2375 \
 		--storage-driver=vfs \
 		"$@"
 fi
 
-if [ "$1" = 'dockerd' ]; then
+if [ "$1" = 'docker' -a "$2" = 'daemon' ]; then
 	# if we're running Docker, let's pipe through dind
 	# (and we'll run dind explicitly with "sh" since its shebang is /bin/bash)
 	set -- sh "$(which dind)" "$@"
