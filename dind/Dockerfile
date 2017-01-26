@@ -1,4 +1,4 @@
-FROM docker:1.8
+FROM docker:1.8.2
 # Source: https://github.com/docker-library/docker/blob/2e8569cf5c665ef955855e95be475f52a55c0720/1.8/dind/Dockerfile
 
 # https://github.com/docker/docker/blob/master/project/PACKAGERS.md#runtime-dependencies
