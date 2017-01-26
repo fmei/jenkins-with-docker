@@ -5,7 +5,6 @@ FROM docker:1.8.2
 RUN apk add --update \
 		btrfs-progs \
 		e2fsprogs \
-		e2fsprogs-extra \
 		iptables \
 		xz \
 		xfsprogs \
