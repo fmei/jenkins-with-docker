@@ -12,7 +12,12 @@ RUN cd /usr/local/bin && \
     rm -f openshift-origin-client-tools-v1.3.2-ac1d579-linux-64bit.tar.gz && \
     rm -rf openshift-origin-client-tools-v1.3.2-ac1d579-linux-64bit && \
     chmod 777 /usr/local/bin/oc
-    
+
+# Install jenkins plugins
+COPY plugins.txt /plugins.txt
+RUN /usr/local/bin/install-plugins.sh /plugins.txt
+
+# Repos for docker
 COPY /docker.repo /etc/yum.repos.d/
 
 # Install docker-engine
@@ -27,5 +32,5 @@ RUN ls -la /etc/yum.repos.d && \
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
 
-# drop back to the jenkins user 
+# drop back to the jenkins user
 USER jenkins
