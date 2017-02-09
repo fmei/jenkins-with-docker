@@ -26,17 +26,6 @@ RUN ls -la /etc/yum.repos.d && \
 
 RUN chown -R 1001:0 $HOME && \
     chmod -R g+rw $HOME
-    
-# install SKOPEO
-ENV SKOPEO_BIN=https://github.com/sabre1041/ocp-support-resources/blob/master/skopeo/bin/skopeo?raw=true
-
-COPY /policy.json /etc/containers/
-
-RUN chown -R 1001:0 $HOME && \
-    chmod -R g+rw $HOME && \
-    curl -L -o /usr/bin/skopeo $SKOPEO_BIN && \
-    chown -R 1001:0 /etc/containers && \
-    chmod -R g+rw /etc/containers
 
 # drop back to the jenkins user 
 USER jenkins
