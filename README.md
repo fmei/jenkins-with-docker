@@ -1,5 +1,5 @@
 # jenkins-with-docker
-Im Rahmen der [link](https://openshift-usergroup.de/ "OpenShift Usergroup Dortmund/Ruhrgebiet") wurde das Thema "" vorgestellt. Als Beispiel dazu gibt es hier das Dockerfile für den im Vortrag erwähnten Jenkins-Container. Den Folien des Vortrags gibt es hier: [link](https://openshift-usergroup.de/unser-zweites-meeting "2. Meeting der UserGroup")
+Im Rahmen der [link](https://openshift-usergroup.de/ "OpenShift Usergroup Dortmund/Ruhrgebiet") wurde das Thema "Immer gut bedient – OpenShift Deployments auf verschiedenen Stages mit Jenkins" vorgestellt. Als Beispiel dazu gibt es hier das Dockerfile für den im Vortrag erwähnten Jenkins-Container. Den Folien des Vortrags gibt es hier: [link](https://openshift-usergroup.de/unser-zweites-meeting "2. Meeting der UserGroup")
 Zusätzlich soll noch das Plugin throttle-concurrents für Jenkins installiert werden. Damit kann man bewirken, dass von einer Pipeline/Job immer nur eine zur Zeit läuft. Ich habe dies für Übertragungen verwendet die Nachts laufen, da ältere Versionen von Docker manchmal mit mehreren Übertragungen gleichzeitig nicht gut klar kamen.
 
 Das Ziel des Images ist es, dass man mit Jenkins einen vollwertigen Docker Daemon fernsteuern kann um Images aus anderen Umgebungen zu holen und anschließend in die eigene ImageRegistry zu pushen.
